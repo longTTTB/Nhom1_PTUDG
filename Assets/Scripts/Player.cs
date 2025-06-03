@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     bool canDoubleJump;
     bool isJumping;
     bool isAttack;
+    public GameObject hitbox;
+    public float currentHp = 100f;
+    public float maxHp = 500f;
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour
             Jump();
             canDoubleJump = false;
         }
+
     }
     public void Jump()
     {
@@ -65,8 +69,8 @@ public class Player : MonoBehaviour
     {
         isJumping = !isGroundCheck;
         isRunning = Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f;
-        animator.SetBool("isrun", isRunning);
-        animator.SetBool("isjump", isJumping);
+        animator.SetBool("isruning", isRunning);
+        animator.SetBool("isjumping", isJumping);
     }
     private void OnAttack()
     {
@@ -74,6 +78,27 @@ public class Player : MonoBehaviour
         {
             animator.SetTrigger("isattack");
         }
-        
+
+    }
+    public void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        currentHp = Mathf.Max(currentHp, 0);
+        if (currentHp <= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+    public void HitBoxOn()
+    {
+        hitbox.SetActive(true);
+    }
+    public void HitBoxOff()
+    {
+        hitbox.SetActive(false);
     }
 }
