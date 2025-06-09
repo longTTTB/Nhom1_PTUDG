@@ -54,6 +54,9 @@ TagManager:
   - name: foreground
     uniqueID: 413835007
     locked: 0
+  - name: foreforeground
+    uniqueID: 3857727935
+    locked: 0
   - name: hpbar
     uniqueID: 3874247733
     locked: 0
