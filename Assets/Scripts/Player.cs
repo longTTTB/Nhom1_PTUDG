@@ -42,11 +42,11 @@ public class Player : MonoBehaviour
         rigidbody2D.velocity = new Vector2(moveInput * moveSpeed, rigidbody2D.velocity.y);
         if (moveInput > 0)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.transform.localScale = new Vector3(1,1,1);
         }
         else if (moveInput < 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.transform.localScale = new Vector3(-1,1,1);
         }
         isGroundCheck = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (isGroundCheck && Input.GetButtonDown("Jump"))
@@ -64,13 +64,12 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
+        animator.SetTrigger("isjumping");
     }
     private void UpdateAnimation()
     {
-        isJumping = !isGroundCheck;
         isRunning = Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f;
         animator.SetBool("isruning", isRunning);
-        animator.SetBool("isjumping", isJumping);
     }
     private void OnAttack()
     {
