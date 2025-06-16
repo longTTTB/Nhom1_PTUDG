@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,6 +85,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
+        StartCoroutine(DamageFlash());
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
         if (currentHp <= 0)
@@ -119,5 +121,13 @@ public class Enemy : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(posCircle.transform.position, detectRadius);
         }
+    }
+    IEnumerator DamageFlash()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color originalColor = sr.color;
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.2f); // thời gian nháy
+        sr.color = originalColor;
     }
 }
