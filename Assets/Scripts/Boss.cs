@@ -54,10 +54,11 @@ public class Boss : MonoBehaviour, DamebyPlayer
             animator.SetBool("isrunning", false);
         }
     }
+    
     public void MoveToPlayer()
     {
         Collider2D[] attackplayer = Physics2D.OverlapCircleAll(posAttack.transform.position, attackRange, checkLayer);
-        if (attackplayer.Length > 0 && canAttack)
+        if (attackplayer.Length > 0 && canAttack || player.transform.position.x == rb.position.x)
         {
             animator.SetTrigger("isattack");
             canAttack = false;

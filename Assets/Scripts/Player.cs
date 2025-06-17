@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
+        StartCoroutine(DamageFlash());
         UpdateHpBar();
         currentHp = Mathf.Max(currentHp, 0);
         if (currentHp <= 0)
@@ -114,5 +115,13 @@ public class Player : MonoBehaviour
     public void HitBoxOff()
     {
         hitbox.SetActive(false);
+    }
+    IEnumerator DamageFlash()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color originalColor = sr.color;
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.2f); // thời gian nháy
+        sr.color = originalColor;
     }
 }
