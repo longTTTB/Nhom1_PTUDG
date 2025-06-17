@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuaiCay : MonoBehaviour
+public class QuaiCay : MonoBehaviour, DamebyPlayer
 {
     [SerializeField] protected Image hpBar;
     [SerializeField] protected float maxHp = 100f;
@@ -15,7 +15,6 @@ public class QuaiCay : MonoBehaviour
     protected float currentHp;
     protected Vector2 startPoint;
     protected Rigidbody2D rb;
-    protected bool movingRight = false;
     public GameObject bulletPrefabs;
     public Transform firePos;
     public float speedDanThuong = 5;
@@ -71,7 +70,6 @@ public class QuaiCay : MonoBehaviour
     {
         currentHp -= damage;
         StartCoroutine(DamageFlash());
-        animator.SetTrigger("ishit");
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
         if (currentHp <= 0)

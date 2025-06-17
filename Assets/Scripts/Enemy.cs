@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, DamebyPlayer
 {
     public GameObject HitBoxEnemy;
     [SerializeField] protected float moveSpeed = 1f;

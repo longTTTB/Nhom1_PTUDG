@@ -3602,9 +3602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab59a3ee3e6977439baca3299b22b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offImage: {fileID: 21300000, guid: b6a4202d42d7bac44abfcd30325b6fec, type: 3}
-  onImage: {fileID: 21300000, guid: 3826e871109eddd40939790e889bc1a4, type: 3}
-  button: {fileID: 922804496}
 --- !u!114 &922804496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3861,7 +3858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df0099d904ae2e47938f6712e080e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1828625909}
 --- !u!1001 &1056237221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65882,12 +65878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66717cc81e6accf46aa812897ee213b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: e47b706efa9c4374caab9a3092fca1cb, type: 3}
-  sfxSounds: []
-  musicSource: {fileID: 1099609748}
-  sfxSource: {fileID: 1239559717}
 --- !u!4 &1719334787
 Transform:
   m_ObjectHideFlags: 0
@@ -67495,8 +67485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9b37ce4d8b6684cb0d1e8d06465a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicSlider: {fileID: 2144235342}
-  _sfxSlider: {fileID: 0}
 --- !u!4 &1894655273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3530854289226015758, guid: a04041df4692d4a45a360280e6f3e42b, type: 3}

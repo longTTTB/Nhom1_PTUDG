@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -53,11 +54,13 @@ public class Player : MonoBehaviour
         rigidbody2D.velocity = new Vector2(moveInput * moveSpeed, rigidbody2D.velocity.y);
         if (moveInput > 0)
         {
-            spriteRenderer.transform.localScale = new Vector3(1, 1, 1);
+            spriteRenderer.flipX = false;
+            hitbox.transform.localScale = new Vector3(1, 1, 1);
         }
         else if (moveInput < 0)
         {
-            spriteRenderer.transform.localScale = new Vector3(-1, 1, 1);
+            spriteRenderer.flipX= true;
+            hitbox.transform.localScale = new Vector3(-1, 1, 1);
         }
         isGroundCheck = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (isGroundCheck && Input.GetButtonDown("Jump"))
