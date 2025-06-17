@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Image hpBar;
     public float moveSpeed = 5f;
     Animator animator;
     public float damage;
@@ -19,10 +21,12 @@ public class Player : MonoBehaviour
     bool isJumping;
     bool isAttack;
     public GameObject hitbox;
-    public float currentHp = 100f;
+    private float currentHp = 100f;
     public float maxHp = 500f;
     void Start()
     {
+        currentHp = maxHp;
+        UpdateHpBar();
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,6 +39,13 @@ public class Player : MonoBehaviour
         UpdateAnimation();
         OnAttack();
     }
+    public void UpdateHpBar()
+    {
+        if (hpBar != null)
+        {
+            hpBar.fillAmount = currentHp / maxHp;
+        }
+    }
     public void MovePlayer()
     {
 
@@ -42,11 +53,11 @@ public class Player : MonoBehaviour
         rigidbody2D.velocity = new Vector2(moveInput * moveSpeed, rigidbody2D.velocity.y);
         if (moveInput > 0)
         {
-            spriteRenderer.transform.localScale = new Vector3(1,1,1);
+            spriteRenderer.transform.localScale = new Vector3(1, 1, 1);
         }
         else if (moveInput < 0)
         {
-            spriteRenderer.transform.localScale = new Vector3(-1,1,1);
+            spriteRenderer.transform.localScale = new Vector3(-1, 1, 1);
         }
         isGroundCheck = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (isGroundCheck && Input.GetButtonDown("Jump"))
@@ -82,6 +93,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
+        UpdateHpBar();
         currentHp = Mathf.Max(currentHp, 0);
         if (currentHp <= 0)
         {

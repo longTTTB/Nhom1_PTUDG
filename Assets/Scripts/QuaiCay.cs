@@ -59,23 +59,6 @@ public class QuaiCay : MonoBehaviour
             canAttack = true;
         }
     }
-     public void Shoot()
-    {
-
-    }
-    // protected virtual void CheckEnemy()
-    // {
-    //     Collider2D[] enemies = Physics2D.OverlapCircleAll(posCircle.transform.position, detectRadius, checkLayer);
-    //     if (enemies.Length > 0)
-    //     {
-    //         animator.SetBool("isattack", true);
-    //     }
-    //     else
-    //     {
-    //         animator.SetBool("isattack", false);
-    //     }
-    // }
-
     protected void UpdateHpBar()
     {
         if (hpBar != null)
