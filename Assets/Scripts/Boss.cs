@@ -27,6 +27,7 @@ public class Boss : MonoBehaviour, DamebyPlayer
     private float attackCooldown = 3f;
 
     public GameObject hitBoxEnemy;
+    bool isdie = false;
     void Start()
     {
         movespeed = speed;
@@ -121,14 +122,17 @@ public class Boss : MonoBehaviour, DamebyPlayer
         StartCoroutine(DamageFlash());
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
-        if (currentHp <= 0)
+        
+        if (currentHp <= 0 && isdie == false)
         {
             Die();
+            isdie = true;
         }
     }
     private void Die()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("isdie");
+        Destroy(gameObject, 1.5f);
     }
 
     public void HitBoxOn()
