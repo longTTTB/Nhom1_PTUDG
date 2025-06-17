@@ -12,7 +12,6 @@ public class Boss : MonoBehaviour, DamebyPlayer
     [SerializeField] protected GameObject posCircle;
     [SerializeField] protected GameObject posAttack;
     [SerializeField] protected LayerMask checkLayer;
-    public float timeToAttack = 3f;
     public bool isFlipped = false;
     protected Animator animator;
     protected float currentHp;
@@ -24,7 +23,7 @@ public class Boss : MonoBehaviour, DamebyPlayer
     public float attackRange = 4f;
 
     private bool canAttack = true;
-    private float attackCooldown = 3f;
+    public float attackCooldown = 3f;
 
     public GameObject hitBoxEnemy;
     bool isdie = false;
@@ -61,7 +60,16 @@ public class Boss : MonoBehaviour, DamebyPlayer
         Collider2D[] attackplayer = Physics2D.OverlapCircleAll(posAttack.transform.position, attackRange, checkLayer);
         if (attackplayer.Length > 0 && canAttack || player.transform.position.x == rb.position.x)
         {
-            animator.SetTrigger("isattack");
+            int skill = Random.Range(0, 2);
+            switch (skill)
+            {
+                case 0:
+                    animator.SetTrigger("isattack");
+                    break;
+                case 1:
+                    animator.SetTrigger("isattack2");
+                    break;
+            }
             canAttack = false;
             speed = 0f; // Dừng di chuyển khi tấn công
             StartCoroutine(AttackCooldown());
@@ -132,7 +140,7 @@ public class Boss : MonoBehaviour, DamebyPlayer
     private void Die()
     {
         animator.SetTrigger("isdie");
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1f);
     }
 
     public void HitBoxOn()

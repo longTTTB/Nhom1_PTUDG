@@ -10090,10 +10090,10 @@ MonoBehaviour:
   checkLayer:
     serializedVersion: 2
     m_Bits: 64
-  timeToAttack: 3
   isFlipped: 0
   speed: 2
   attackRange: 3
+  attackCooldown: 5
   hitBoxEnemy: {fileID: 1733860592}
 --- !u!50 &1528339571
 Rigidbody2D:
