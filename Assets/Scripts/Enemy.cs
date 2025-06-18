@@ -18,9 +18,10 @@ public class Enemy : MonoBehaviour, DamebyPlayer
     protected Vector2 startPoint;
     protected Rigidbody2D rb;
     protected bool movingRight = false;
-
+    bool isdie;
     protected virtual void Start()
     {
+        isdie = false;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHp = maxHp;
@@ -88,16 +89,18 @@ public class Enemy : MonoBehaviour, DamebyPlayer
         StartCoroutine(DamageFlash());
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
-        if (currentHp <= 0)
+        if (currentHp <= 0 && isdie==false)
         {
             Die();
         }
     }
-
+    
     private void Die()
     {
+        isdie = true;
+        animator.SetTrigger("isdie");
+        Destroy(gameObject, 1f);
         GameManager.Instance.KillEnemy();
-        Destroy(gameObject);
     }
 
     public void HitBoxOn()
