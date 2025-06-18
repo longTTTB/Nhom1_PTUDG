@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 3936187436313981929}
   maxHp: 100
-  detectRadius: 6
+  detectRadius: 9
   posCircle: {fileID: 6724878131671883717}
   checkLayer:
     serializedVersion: 2

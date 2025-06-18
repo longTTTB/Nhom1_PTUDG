@@ -19,9 +19,10 @@ public class QuaiCay : MonoBehaviour, DamebyPlayer
     public Transform firePos;
     public float speedDanThuong = 5;
     Player player;
-
+    bool isdie;
     protected virtual void Start()
     {
+        isdie = false;
         player = FindAnyObjectByType<Player>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -65,14 +66,15 @@ public class QuaiCay : MonoBehaviour, DamebyPlayer
             hpBar.fillAmount = currentHp / maxHp;
         }
     }
-
+    
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
+        animator.SetTrigger("ishit");
         StartCoroutine(DamageFlash());
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
-        if (currentHp <= 0)
+        if (currentHp <= 0 && isdie==false)
         {
             Die();
         }
@@ -80,13 +82,10 @@ public class QuaiCay : MonoBehaviour, DamebyPlayer
 
     private void Die()
     {
+        isdie = true;
         animator.SetTrigger("isdie");
         Destroy(gameObject, 1f);
-    }
-
-    public bool isDie()
-    {
-        return currentHp <= 0;
+        GameManager.Instance.KillEnemy();
     }
 
     void OnDrawGizmosSelected()
@@ -132,8 +131,11 @@ public class QuaiCay : MonoBehaviour, DamebyPlayer
             Vector3 directisonToPlayer = player.transform.position - firePos.position;
             directisonToPlayer.Normalize();
             GameObject bullet = Instantiate(bulletPrefabs, firePos.position, Quaternion.identity);
-            Bullet enemyBullet = bullet.AddComponent<Bullet>();
-            enemyBullet.SetMoveDirection(directisonToPlayer * speedDanThuong);
+            Bullet enemyBullet = bullet.GetComponent<Bullet>();
+            if (enemyBullet != null)
+            {
+                enemyBullet.SetMoveDirection(directisonToPlayer * speedDanThuong);
+            }
         }
     }
 }

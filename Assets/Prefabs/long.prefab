@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5055631667676422637}
   m_Father: {fileID: 7184421533415962826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4033323934531942800
@@ -107,7 +108,7 @@ GameObject:
   - component: {fileID: 6982871357480000829}
   m_Layer: 6
   m_Name: long
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62774b978a4f4aa41a781d311cda9a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpBar: {fileID: 0}
   moveSpeed: 5
   damage: 0
   jumpForce: 20
@@ -223,8 +225,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hitbox: {fileID: 3208831830679691577}
-  currentHp: 100
   maxHp: 100
+  hucchieuPrefabs: {fileID: 6518572058362926055, guid: 86acb8a978227164eb90eb5003e1bc1d, type: 3}
+  posHucChieu: {fileID: 5055631667676422637}
 --- !u!61 &3647871816389302665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -257,7 +260,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2491306, y: 0.0728187}
+  m_Offset: {x: -0.26075172, y: 0.0728187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -268,7 +271,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.88609576, y: 1.9234835}
+  m_Size: {x: 1.1882133, y: 1.9234835}
   m_EdgeRadius: 0
 --- !u!50 &6982871357480000829
 Rigidbody2D:
@@ -297,6 +300,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &7082567193551961382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5055631667676422637}
+  m_Layer: 6
+  m_Name: poshcchieu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5055631667676422637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082567193551961382}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.29, y: 0.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7077004066133491232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8848302886664205593
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,8 +23,12 @@ public class Player : MonoBehaviour
     public GameObject hitbox;
     private float currentHp = 100f;
     public float maxHp = 500f;
+    public GameObject hucchieuPrefabs;
+    public Transform posHucChieu;
+    bool isdie;
     void Start()
     {
+        isdie = false ;
         currentHp = maxHp;
         UpdateHpBar();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -87,9 +91,13 @@ public class Player : MonoBehaviour
     }
     private void OnAttack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isGroundCheck && !isRunning)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isRunning)
         {
             animator.SetTrigger("isattack");
+        }
+        if(Input.GetKeyDown(KeyCode.Mouse1) && !isRunning)
+        {
+            animator.SetTrigger("isattack2");
         }
 
     }
@@ -99,14 +107,17 @@ public class Player : MonoBehaviour
         StartCoroutine(DamageFlash());
         UpdateHpBar();
         currentHp = Mathf.Max(currentHp, 0);
-        if (currentHp <= 0)
+        if (currentHp <= 0 && isdie == false)
         {
             Die();
         }
     }
     private void Die()
     {
-        Destroy(gameObject);
+        isdie = true;
+        moveSpeed = 0;
+        animator.SetTrigger("isdie");
+        Destroy(gameObject, 1f);
     }
     public void HitBoxOn()
     {
@@ -123,5 +134,16 @@ public class Player : MonoBehaviour
         sr.color = Color.red;
         yield return new WaitForSeconds(0.2f); // thời gian nháy
         sr.color = originalColor;
+    }
+    public void HucChieu()
+    {
+        GameObject huc = Instantiate(hucchieuPrefabs, posHucChieu.position, Quaternion.identity);
+
+        // Tính hướng theo flipX
+        float dirX = spriteRenderer.flipX ? -1f : 1f;
+
+        // Gửi hướng cho đòn đánh
+        HucChieu script = huc.GetComponent<HucChieu>();
+        script.SetDirectionAndFlip(new Vector3(dirX, 0, 0), spriteRenderer.flipX);
     }
 }

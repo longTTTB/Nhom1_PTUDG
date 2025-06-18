@@ -96,6 +96,7 @@ public class Enemy : MonoBehaviour, DamebyPlayer
 
     private void Die()
     {
+        GameManager.Instance.KillEnemy();
         Destroy(gameObject);
     }
 
