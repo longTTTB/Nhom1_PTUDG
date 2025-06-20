@@ -27,6 +27,9 @@ public class Boss : MonoBehaviour, DamebyPlayer
 
     public GameObject hitBoxEnemy;
     bool isdie = false;
+    public Transform posY;
+    Vector3 posPlayer;
+    public GameObject thunderPrefabs;
     void Start()
     {
         movespeed = speed;
@@ -49,18 +52,20 @@ public class Boss : MonoBehaviour, DamebyPlayer
             MoveToPlayer();
             animator.SetBool("isrunning", true);
         }
-        else 
+        else
         {
             animator.SetBool("isrunning", false);
         }
     }
-    
+
     public void MoveToPlayer()
     {
         Collider2D[] attackplayer = Physics2D.OverlapCircleAll(posAttack.transform.position, attackRange, checkLayer);
         if (attackplayer.Length > 0 && canAttack || player.transform.position.x == rb.position.x)
         {
-            int skill = Random.Range(0, 2);
+            float posplayerX = attackplayer[Random.Range(0, attackplayer.Length)].transform.position.x;
+            posPlayer = new Vector3(posplayerX+9f, posY.position.y,transform.position.z);
+            int skill = Random.Range(0, 3);
             switch (skill)
             {
                 case 0:
@@ -69,12 +74,17 @@ public class Boss : MonoBehaviour, DamebyPlayer
                 case 1:
                     animator.SetTrigger("isattack2");
                     break;
+                case 2:
+                    currentHp += 100;
+                    currentHp = Mathf.Min(currentHp, maxHp);
+                    UpdateHpBar();
+                    break;
             }
             canAttack = false;
             speed = 0f; // Dừng di chuyển khi tấn công
             StartCoroutine(AttackCooldown());
         }
-        else if(attackplayer.Length <= 0)
+        else if (attackplayer.Length <= 0)
         {
             speed = movespeed; // Tiếp tục di chuyển
         }
@@ -130,7 +140,7 @@ public class Boss : MonoBehaviour, DamebyPlayer
         StartCoroutine(DamageFlash());
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
-        
+
         if (currentHp <= 0 && isdie == false)
         {
             Die();
@@ -159,5 +169,9 @@ public class Boss : MonoBehaviour, DamebyPlayer
         sr.color = Color.red;
         yield return new WaitForSeconds(0.2f); // thời gian nháy
         sr.color = originalColor;
+    }
+    public void OnAttack()
+    {
+        Destroy(Instantiate(thunderPrefabs, posPlayer, Quaternion.identity), 1f);
     }
 }

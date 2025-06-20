@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -23,13 +24,18 @@ public class Player : MonoBehaviour
     public GameObject hitbox;
     private float currentHp = 100f;
     public float maxHp = 500f;
+    public float maxEnegy = 100f;
     public GameObject hucchieuPrefabs;
     public Transform posHucChieu;
     bool isdie;
     public GameObject menuthua;
+    private float currentEnegy = 0;
+    bool canSkill = true;
+    private float enegyuse = 10;
     void Start()
     {
         isdie = false ;
+        currentEnegy = maxEnegy;
         currentHp = maxHp;
         UpdateHpBar();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -96,9 +102,18 @@ public class Player : MonoBehaviour
         {
             animator.SetTrigger("isattack");
         }
-        if(Input.GetKeyDown(KeyCode.Mouse1) && !isRunning)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !isRunning && canSkill)
         {
+            currentEnegy -= 10;
             animator.SetTrigger("isattack2");
+            if (currentEnegy < enegyuse)
+            {
+                canSkill = false;
+            }
+            else
+            {
+                canSkill = true;
+            }
         }
 
     }

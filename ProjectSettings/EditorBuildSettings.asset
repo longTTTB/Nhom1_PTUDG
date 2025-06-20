@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ChonLevel.unity
     guid: 1500a8ea315f6664083fbba6418e1cbd
   - enabled: 1
-    path: Assets/Scenes/home.unity
+    path: Assets/Scenes/Home.unity
     guid: ca9c54921bf5f3a4cade1ce2f7c6999e
   - enabled: 1
     path: Assets/Scenes/Lv1.unity
