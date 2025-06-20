@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 80174867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.61, y: -7.43, z: -10}
+  m_LocalPosition: {x: -9.33606, y: -2.8040013, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45479,7 +45479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7184421533415962826, guid: ff309cd74238a05468cf1b536a8a46fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.61
+      value: -17.33
       objectReference: {fileID: 0}
     - target: {fileID: 7184421533415962826, guid: ff309cd74238a05468cf1b536a8a46fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46105,7 +46105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1158778270}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &920378351
@@ -46156,7 +46156,7 @@ Transform:
   m_GameObject: {fileID: 920378349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.61, y: -7.43, z: -10}
+  m_LocalPosition: {x: -17.33, y: -7.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46880,7 +46880,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 413835007
-  m_SortingOrder: 20
+  m_SortingOrder: 21
   m_TargetDisplay: 0
 --- !u!224 &1136432922
 RectTransform:
@@ -46913,6 +46913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158778269}
   - component: {fileID: 1158778268}
+  - component: {fileID: 1158778270}
   m_Layer: 0
   m_Name: nenbos
   m_TagString: Untagged
@@ -46982,11 +46983,60 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.9, y: 3.2, z: 0}
-  m_LocalScale: {x: 0.63, y: 0.63, z: 0.63}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1158778270
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158778267}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 70.0346, y: 40.010002}
+    newSize: {x: 70.0346, y: 40.010002}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -35.0173, y: 20.005001}
+      - {x: -35.0173, y: -20.005001}
+      - {x: 35.0173, y: -20.005001}
+      - {x: 35.0173, y: 20.005001}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1311853575
 GameObject:
   m_ObjectHideFlags: 0
@@ -49151,7 +49201,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -420719563
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2096063081

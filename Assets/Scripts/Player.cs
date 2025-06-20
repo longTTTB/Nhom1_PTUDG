@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public GameObject hucchieuPrefabs;
     public Transform posHucChieu;
     bool isdie;
+    public GameObject menuthua;
     void Start()
     {
         isdie = false ;
@@ -115,6 +116,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         isdie = true;
+        menuthua.SetActive(true);
         moveSpeed = 0;
         animator.SetTrigger("isdie");
         Destroy(gameObject, 1f);
