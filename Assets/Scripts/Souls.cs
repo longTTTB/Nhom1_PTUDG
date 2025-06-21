@@ -8,6 +8,7 @@ public class Souls : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX("collectItem");
             GameManager.Instance.GetSoul();
             Destroy(gameObject);    
         }

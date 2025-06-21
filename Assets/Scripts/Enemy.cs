@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour, DamebyPlayer
         StartCoroutine(DamageFlash());
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
+        AudioManager.Instance.PlaySFX("quaihit");
         if (currentHp <= 0 && isdie==false)
         {
             Die();

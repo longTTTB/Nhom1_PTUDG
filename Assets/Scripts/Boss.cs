@@ -12,6 +12,7 @@ public class Boss : MonoBehaviour, DamebyPlayer
     [SerializeField] protected GameObject posCircle;
     [SerializeField] protected GameObject posAttack;
     [SerializeField] protected LayerMask checkLayer;
+    [SerializeField] GameObject WinUi;
     public bool isFlipped = false;
     protected Animator animator;
     protected float currentHp;
@@ -145,12 +146,14 @@ public class Boss : MonoBehaviour, DamebyPlayer
         {
             Die();
             isdie = true;
+            WinUi.SetActive(true);
         }
     }
     private void Die()
     {
         animator.SetTrigger("isdie");
         Destroy(gameObject, 1f);
+        
     }
 
     public void HitBoxOn()
