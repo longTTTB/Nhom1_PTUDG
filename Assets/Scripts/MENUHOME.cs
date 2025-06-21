@@ -7,7 +7,7 @@ public class MENUHOME : MonoBehaviour
 {
     public void NewGAme()
     {
-        SceneManager.LoadScene("Lv3");
+        SceneManager.LoadScene("Lv1");
     }
     public void Level()
     {
