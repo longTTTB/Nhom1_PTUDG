@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Image hpBar;
+    public Image mpBar;
     public float moveSpeed = 5f;
     Animator animator;
     public float damage;
@@ -37,7 +38,9 @@ public class Player : MonoBehaviour
         isdie = false ;
         currentEnegy = maxEnegy;
         currentHp = maxHp;
+       
         UpdateHpBar();
+        UppdateMpBar();
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -56,6 +59,13 @@ public class Player : MonoBehaviour
         if (hpBar != null)
         {
             hpBar.fillAmount = currentHp / maxHp;
+        }
+    }
+    public void UppdateMpBar()
+    {
+        if(mpBar != null)
+        {
+            mpBar.fillAmount = currentEnegy / maxEnegy;
         }
     }
     public void MovePlayer()
@@ -105,6 +115,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && !isRunning && canSkill)
         {
             currentEnegy -= 10;
+            UppdateMpBar();
             animator.SetTrigger("isattack2");
             if (currentEnegy < enegyuse)
             {
