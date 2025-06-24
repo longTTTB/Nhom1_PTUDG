@@ -147,6 +147,7 @@ public class Boss : MonoBehaviour, DamebyPlayer
             Die();
             isdie = true;
             WinUi.SetActive(true);
+            
         }
     }
     private void Die()

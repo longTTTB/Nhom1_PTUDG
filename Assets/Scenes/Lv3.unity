@@ -865,6 +865,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3530854289226015758, guid: a04041df4692d4a45a360280e6f3e42b, type: 3}
   m_PrefabInstance: {fileID: 124014766}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &170283238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1237505101178372462, guid: 5571677663ad1a541900d4f4657ca7c0, type: 3}
+  m_PrefabInstance: {fileID: 1248440180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &177857093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1120,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c0518593d15d742b7d087431847deb, type: 3}
+--- !u!114 &203406807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1237505101178372462, guid: 5571677663ad1a541900d4f4657ca7c0, type: 3}
+  m_PrefabInstance: {fileID: 1477175739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &261353058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2063,10 +2085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d5ab322de3904439c5c811eff9a15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soulText: {fileID: 0}
-  enemyText: {fileID: 0}
-  maxsoulText: {fileID: 0}
-  maxenemyText: {fileID: 0}
+  soulText: {fileID: 1540319711}
+  enemyText: {fileID: 1540319709}
+  maxsoulText: {fileID: 1540319710}
+  maxenemyText: {fileID: 1540319708}
   currentsoul: 0
   killEnemy: 0
   soulNeed: 4
@@ -67310,6 +67332,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2872426979365485175, guid: 4989dc628f5785f4ca30828c3f84a0e2, type: 3}
   m_PrefabInstance: {fileID: 1540319706}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1540319708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5247861023941704422, guid: 4989dc628f5785f4ca30828c3f84a0e2, type: 3}
+  m_PrefabInstance: {fileID: 1540319706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1540319709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6057352602427016924, guid: 4989dc628f5785f4ca30828c3f84a0e2, type: 3}
+  m_PrefabInstance: {fileID: 1540319706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1540319710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8997547153036928961, guid: 4989dc628f5785f4ca30828c3f84a0e2, type: 3}
+  m_PrefabInstance: {fileID: 1540319706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1540319711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2726085459191005834, guid: 4989dc628f5785f4ca30828c3f84a0e2, type: 3}
+  m_PrefabInstance: {fileID: 1540319706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551722732
 GameObject:
   m_ObjectHideFlags: 0
@@ -69604,7 +69670,11 @@ PrefabInstance:
     - target: {fileID: 1468669440655559475, guid: ff309cd74238a05468cf1b536a8a46fc, type: 3}
       propertyPath: hpBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 203406807}
+    - target: {fileID: 1468669440655559475, guid: ff309cd74238a05468cf1b536a8a46fc, type: 3}
+      propertyPath: mpBar
+      value: 
+      objectReference: {fileID: 170283238}
     - target: {fileID: 1468669440655559475, guid: ff309cd74238a05468cf1b536a8a46fc, type: 3}
       propertyPath: menuthua
       value: 
