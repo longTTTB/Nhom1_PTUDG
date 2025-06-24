@@ -105,25 +105,24 @@ public class QuaiCay : MonoBehaviour, DamebyPlayer
         sr.color = originalColor;
     }
     public void LookAtPlayer()
-	{
-		Vector3 flipped = transform.localScale;
-		flipped.z *= -1f;
-        if (player != null)
+    {
+        if (player == null) return;
+
+        Vector3 scale = transform.localScale;
+
+        if (transform.position.x > player.transform.position.x)
         {
-            if (transform.position.x > player.transform.position.x && isFlipped)
-            {
-                transform.localScale = flipped;
-                transform.Rotate(0f, 180f, 0f);
-                isFlipped = false;
-            }
-            else if (transform.position.x < player.transform.position.x && !isFlipped)
-            {
-                transform.localScale = flipped;
-                transform.Rotate(0f, 180f, 0f);
-                isFlipped = true;
-            }
+            // Quay trái
+            scale.x = -Mathf.Abs(scale.x);
         }
-	}
+        else
+        {
+            // Quay phải
+            scale.x = Mathf.Abs(scale.x);
+        }
+
+        transform.localScale = scale;
+    }
     public void BanDanThuong()
     {
         if(player != null)
